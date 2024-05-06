@@ -1,4 +1,4 @@
-
+[MarketValueApp.postman_collection.json](https://github.com/nabisaheb782/MarketValueApp/files/15215115/MarketValueApp.postman_collection.json)
 *************** Market Value Calculator *****************
 
 This project is a Spring Boot application that provides RESTful APIs for calculating the market value of funds and investors' portfolios. It allows users to add funds, holdings, and investors, and then calculate the market value of individual funds or the entire portfolio of an investor, optionally excluding specific holdings.
@@ -75,6 +75,150 @@ Add a new holding to a specific fund for a specific investor.
 
 
 
+[Uploading MarketValueApp.postman{
+	"info": {
+		"_postman_id": "518acf3e-bed3-47f4-8e0f-e47b87dfac7f",
+		"name": "MarketValueApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33988050"
+	},
+	"item": [
+		{
+			"name": "Create Investor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n      \"name\": \"nani\"\r\n      \r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/investor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"investor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateFundForInvestor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"name\": \"f1\"\r\n          \r\n         \r\n        }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/fund/nani",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fund",
+						"nani"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateHoldingForFunds",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n            {\r\n              \"name\": \"h1\",\r\n              \"quantity\": 10.0\r\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/holding/f1/nani",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"holding",
+						"f1",
+						"nani"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetsMarketValue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/marketValue/f1?exclusion=\"h1\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marketValue",
+						"f1"
+					],
+					"query": [
+						{
+							"key": "exclusion",
+							"value": "\"h1\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetsInvestorMarketValue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/marketValue/InvestorMarketValue/{nani}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"marketValue",
+						"InvestorMarketValue",
+						"{nani}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}_collection.json…]()
 
 
 
